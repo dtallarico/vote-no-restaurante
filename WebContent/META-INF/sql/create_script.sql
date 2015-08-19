@@ -1,0 +1,2 @@
+create table Restaurante(ID INTEGER IDENTITY, NOME VARCHAR(100), QTDE INTEGER)
+create table Usuario(NOME VARCHAR(100), EMAIL VARCHAR(100))

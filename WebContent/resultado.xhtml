@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:h="http://java.sun.com/jsf/html">
+	<h:head>
+		<title>Resultados</title>
+		<h:outputStylesheet library="css" name="style.css" />
+	</h:head>
+	<div id="conteudo">
+		<h:body>
+			<h:form>
+				<fieldset>
+					<legend>Votos até o momento</legend>
+					<h:dataTable value="#{resultadoBean.restaurantes}" var="restaurante">
+						<h:column>
+							<f:facet name="header">Restaurante</f:facet>
+							#{restaurante.nome}
+						</h:column>
+						<h:column>
+							<f:facet name="header">Votos</f:facet>
+							#{restaurante.qtde}
+						</h:column>
+					</h:dataTable>
+				</fieldset>
+			</h:form>
+			<h:form>
+				<fieldset>
+					<legend>Restaurantes Escolhidos</legend>
+					<h:dataTable value="#{resultadoBean.restaurantesEscolhidos}" var="restaurante2">
+						<h:column>
+							<f:facet name="header">Restaurante</f:facet>
+							#{restaurante2.nome}
+						</h:column>
+					</h:dataTable>
+				</fieldset>
+			</h:form>
+		</h:body>
+	</div>
+</html>
