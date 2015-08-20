@@ -30,4 +30,8 @@ public class UsuarioDao  implements Serializable{
 		this.manager.persist(usuario);
 		this.manager.getTransaction().commit();
 	}
+	
+	public EntityManager getEntityManager() {
+		return manager;
+	}
 }

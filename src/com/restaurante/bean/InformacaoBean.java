@@ -49,8 +49,12 @@ public class InformacaoBean implements Serializable{
 	public List<Restaurante> getRestaurantes() {
 		return restaurantes;
 	}
-	public void setRestaurantes(List<Restaurante> restaurantes) {
-		this.restaurantes = restaurantes;
+	public void setRestaurantes(Restaurante restaurante) {
+		
+		if (this.restaurantes == null) {
+			this.restaurantes = new ArrayList<>();
+		}
+		this.restaurantes.add(restaurante);
 	}
 
 	

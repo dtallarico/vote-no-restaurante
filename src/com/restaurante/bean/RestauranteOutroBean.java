@@ -1,12 +1,7 @@
 package com.restaurante.bean;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
-
-
-
-
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -23,9 +18,6 @@ public class RestauranteOutroBean implements Serializable{
 
 	
 	private List<Restaurante> restaurantesResto;
-	
-	
-	private List<Restaurante> restaurantesEscolhidos = new ArrayList<>();
 	
 	
 	@Inject
@@ -55,9 +47,7 @@ public class RestauranteOutroBean implements Serializable{
 			restaurante.setQtde((restaurante.getQtde()+1));
 		}
 		dao.atualiza(restaurante);
-		this.restaurantesEscolhidos = this.randomico.getRestaurantes();
-		this.restaurantesEscolhidos.add(restaurante);
-		this.randomico.setRestaurantes(restaurantesEscolhidos);
+		this.randomico.setRestaurantes(restaurante);
 		return "usuario?faces-redirect=true";
 	}
 	

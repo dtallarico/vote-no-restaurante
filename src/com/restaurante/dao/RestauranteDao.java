@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -52,23 +51,14 @@ public class RestauranteDao  implements Serializable{
 		return this.listaRandomica;
 	}
 	
-	public void adiciona(Restaurante restaurante){
-		manager.getTransaction().begin();
-		manager.persist(restaurante);
-		manager.getTransaction().commit();
-	}
-	
-	public void remove(Restaurante restaurante){
-		manager.getTransaction().begin();
-		manager.remove(restaurante);
-		manager.getTransaction().commit();
-	}
-
-
 	public void atualiza(Restaurante restaurante) {
 		manager.getTransaction().begin();
 		manager.merge(restaurante);
 		manager.getTransaction().commit();
+	}
+
+	public EntityManager getEntityManager() {
+		return manager;
 	}
 	
 }
