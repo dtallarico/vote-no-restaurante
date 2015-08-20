@@ -41,14 +41,18 @@ public class RestauranteBean implements Serializable{
 	}
 	
 	public String escolha(Restaurante restaurante){
+		this.registraVoto(restaurante);
+		this.randomico.setRestaurantes(restaurante);
+		return "restaurante?faces-redirect=true";
+	}
+
+	private void registraVoto(Restaurante restaurante) {
 		if(restaurante.getQtde() == null){
 			restaurante.setQtde(new Integer("1"));
 		}else{
 			restaurante.setQtde((restaurante.getQtde()+1));
 		}
 		dao.atualiza(restaurante);
-		this.randomico.setRestaurantes(restaurante);
-		return "restaurante?faces-redirect=true";
 	}
 	
 }
